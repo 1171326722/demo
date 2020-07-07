@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.bean.User">
+    <result column="user_nub" jdbcType="VARCHAR" property="userNub" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="id_number" jdbcType="VARCHAR" property="idNumber" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="work_adr" jdbcType="VARCHAR" property="workAdr" />
+    <result column="home_adr" jdbcType="VARCHAR" property="homeAdr" />
+    <result column="zip_code" jdbcType="VARCHAR" property="zipCode" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="license_nub" jdbcType="VARCHAR" property="licenseNub" />
+    <result column="license_type" jdbcType="VARCHAR" property="licenseType" />
+    <result column="license_start_time" jdbcType="DATE" property="licenseStartTime" />
+    <result column="license_end_time" jdbcType="DATE" property="licenseEndTime" />
+    <result column="driver_years" jdbcType="VARCHAR" property="driverYears" />
+    <result column="vip_check" jdbcType="VARCHAR" property="vipCheck" />
+    <result column="vip_type" jdbcType="VARCHAR" property="vipType" />
+    <result column="mortgage_cer" jdbcType="VARCHAR" property="mortgageCer" />
+    <result column="guarantee" jdbcType="VARCHAR" property="guarantee" />
+    <result column="guarantee_idcard" jdbcType="VARCHAR" property="guaranteeIdcard" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    user_nub, sex, name, age, id_number, tel, work_adr, home_adr, zip_code, email, license_nub, 
+    license_type, license_start_time, license_end_time, driver_years, vip_check, vip_type, 
+    mortgage_cer, guarantee, guarantee_idcard
+  </sql>
+  <select id="selectByExample" parameterType="com.example.demo.bean.UserExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user_infor
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.example.demo.bean.UserExample">
+    delete from user_infor
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.bean.User">
+    insert into user_infor (user_nub, sex, name, 
+      age, id_number, tel, 
+      work_adr, home_adr, zip_code, 
+      email, license_nub, license_type, 
+      license_start_time, license_end_time, driver_years, 
+      vip_check, vip_type, mortgage_cer, 
+      guarantee, guarantee_idcard)
+    values (#{userNub,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{age,jdbcType=INTEGER}, #{idNumber,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{workAdr,jdbcType=VARCHAR}, #{homeAdr,jdbcType=VARCHAR}, #{zipCode,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{licenseNub,jdbcType=VARCHAR}, #{licenseType,jdbcType=VARCHAR}, 
+      #{licenseStartTime,jdbcType=DATE}, #{licenseEndTime,jdbcType=DATE}, #{driverYears,jdbcType=VARCHAR}, 
+      #{vipCheck,jdbcType=VARCHAR}, #{vipType,jdbcType=VARCHAR}, #{mortgageCer,jdbcType=VARCHAR}, 
+      #{guarantee,jdbcType=VARCHAR}, #{guaranteeIdcard,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.bean.User">
+    insert into user_infor
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userNub != null">
+        user_nub,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="age != null">
+        age,
+      </if>
+      <if test="idNumber != null">
+        id_number,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="workAdr != null">
+        work_adr,
+      </if>
+      <if test="homeAdr != null">
+        home_adr,
+      </if>
+      <if test="zipCode != null">
+        zip_code,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="licenseNub != null">
+        license_nub,
+      </if>
+      <if test="licenseType != null">
+        license_type,
+      </if>
+      <if test="licenseStartTime != null">
+        license_start_time,
+      </if>
+      <if test="licenseEndTime != null">
+        license_end_time,
+      </if>
+      <if test="driverYears != null">
+        driver_years,
+      </if>
+      <if test="vipCheck != null">
+        vip_check,
+      </if>
+      <if test="vipType != null">
+        vip_type,
+      </if>
+      <if test="mortgageCer != null">
+        mortgage_cer,
+      </if>
+      <if test="guarantee != null">
+        guarantee,
+      </if>
+      <if test="guaranteeIdcard != null">
+        guarantee_idcard,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userNub != null">
+        #{userNub,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null">
+        #{age,jdbcType=INTEGER},
+      </if>
+      <if test="idNumber != null">
+        #{idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="workAdr != null">
+        #{workAdr,jdbcType=VARCHAR},
+      </if>
+      <if test="homeAdr != null">
+        #{homeAdr,jdbcType=VARCHAR},
+      </if>
+      <if test="zipCode != null">
+        #{zipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseNub != null">
+        #{licenseNub,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseType != null">
+        #{licenseType,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseStartTime != null">
+        #{licenseStartTime,jdbcType=DATE},
+      </if>
+      <if test="licenseEndTime != null">
+        #{licenseEndTime,jdbcType=DATE},
+      </if>
+      <if test="driverYears != null">
+        #{driverYears,jdbcType=VARCHAR},
+      </if>
+      <if test="vipCheck != null">
+        #{vipCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="vipType != null">
+        #{vipType,jdbcType=VARCHAR},
+      </if>
+      <if test="mortgageCer != null">
+        #{mortgageCer,jdbcType=VARCHAR},
+      </if>
+      <if test="guarantee != null">
+        #{guarantee,jdbcType=VARCHAR},
+      </if>
+      <if test="guaranteeIdcard != null">
+        #{guaranteeIdcard,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.bean.UserExample" resultType="java.lang.Long">
+    select count(*) from user_infor
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update user_infor
+    <set>
+      <if test="record.userNub != null">
+        user_nub = #{record.userNub,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null">
+        sex = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.age != null">
+        age = #{record.age,jdbcType=INTEGER},
+      </if>
+      <if test="record.idNumber != null">
+        id_number = #{record.idNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tel != null">
+        tel = #{record.tel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.workAdr != null">
+        work_adr = #{record.workAdr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.homeAdr != null">
+        home_adr = #{record.homeAdr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zipCode != null">
+        zip_code = #{record.zipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.licenseNub != null">
+        license_nub = #{record.licenseNub,jdbcType=VARCHAR},
+      </if>
+      <if test="record.licenseType != null">
+        license_type = #{record.licenseType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.licenseStartTime != null">
+        license_start_time = #{record.licenseStartTime,jdbcType=DATE},
+      </if>
+      <if test="record.licenseEndTime != null">
+        license_end_time = #{record.licenseEndTime,jdbcType=DATE},
+      </if>
+      <if test="record.driverYears != null">
+        driver_years = #{record.driverYears,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vipCheck != null">
+        vip_check = #{record.vipCheck,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vipType != null">
+        vip_type = #{record.vipType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mortgageCer != null">
+        mortgage_cer = #{record.mortgageCer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guarantee != null">
+        guarantee = #{record.guarantee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.guaranteeIdcard != null">
+        guarantee_idcard = #{record.guaranteeIdcard,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update user_infor
+    set user_nub = #{record.userNub,jdbcType=VARCHAR},
+      sex = #{record.sex,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      age = #{record.age,jdbcType=INTEGER},
+      id_number = #{record.idNumber,jdbcType=VARCHAR},
+      tel = #{record.tel,jdbcType=VARCHAR},
+      work_adr = #{record.workAdr,jdbcType=VARCHAR},
+      home_adr = #{record.homeAdr,jdbcType=VARCHAR},
+      zip_code = #{record.zipCode,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      license_nub = #{record.licenseNub,jdbcType=VARCHAR},
+      license_type = #{record.licenseType,jdbcType=VARCHAR},
+      license_start_time = #{record.licenseStartTime,jdbcType=DATE},
+      license_end_time = #{record.licenseEndTime,jdbcType=DATE},
+      driver_years = #{record.driverYears,jdbcType=VARCHAR},
+      vip_check = #{record.vipCheck,jdbcType=VARCHAR},
+      vip_type = #{record.vipType,jdbcType=VARCHAR},
+      mortgage_cer = #{record.mortgageCer,jdbcType=VARCHAR},
+      guarantee = #{record.guarantee,jdbcType=VARCHAR},
+      guarantee_idcard = #{record.guaranteeIdcard,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

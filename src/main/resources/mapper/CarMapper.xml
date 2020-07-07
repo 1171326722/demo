@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.CarMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.bean.Car">
+    <id column="nub" jdbcType="VARCHAR" property="nub" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="color" jdbcType="VARCHAR" property="color" />
+    <result column="engine" jdbcType="VARCHAR" property="engine" />
+    <result column="frame" jdbcType="VARCHAR" property="frame" />
+    <result column="seller" jdbcType="VARCHAR" property="seller" />
+    <result column="buy_date" jdbcType="DATE" property="buyDate" />
+    <result column="insurance_nub" jdbcType="VARCHAR" property="insuranceNub" />
+    <result column="insurance_cmp" jdbcType="VARCHAR" property="insuranceCmp" />
+    <result column="insurance_type" jdbcType="VARCHAR" property="insuranceType" />
+    <result column="insurance_start_time" jdbcType="VARCHAR" property="insuranceStartTime" />
+    <result column="insurance_end_time" jdbcType="VARCHAR" property="insuranceEndTime" />
+    <result column="deposit" jdbcType="VARCHAR" property="deposit" />
+    <result column="day_rent" jdbcType="INTEGER" property="dayRent" />
+    <result column="week_rent" jdbcType="INTEGER" property="weekRent" />
+    <result column="month_rent" jdbcType="INTEGER" property="monthRent" />
+    <result column="weekend_rent" jdbcType="INTEGER" property="weekendRent" />
+    <result column="day_limit_km" jdbcType="INTEGER" property="dayLimitKm" />
+    <result column="overtime_rent" jdbcType="INTEGER" property="overtimeRent" />
+    <result column="overkm_rent" jdbcType="INTEGER" property="overkmRent" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    nub, type, name, color, engine, frame, seller, buy_date, insurance_nub, insurance_cmp, 
+    insurance_type, insurance_start_time, insurance_end_time, deposit, day_rent, week_rent, 
+    month_rent, weekend_rent, day_limit_km, overtime_rent, overkm_rent, state, note
+  </sql>
+  <select id="selectByExample" parameterType="com.example.demo.bean.CarExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from car_infor
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from car_infor
+    where nub = #{nub,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from car_infor
+    where nub = #{nub,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.bean.CarExample">
+    delete from car_infor
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.bean.Car">
+    insert into car_infor (nub, type, name, 
+      color, engine, frame, 
+      seller, buy_date, insurance_nub, 
+      insurance_cmp, insurance_type, insurance_start_time, 
+      insurance_end_time, deposit, day_rent, 
+      week_rent, month_rent, weekend_rent, 
+      day_limit_km, overtime_rent, overkm_rent, 
+      state, note)
+    values (#{nub,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{color,jdbcType=VARCHAR}, #{engine,jdbcType=VARCHAR}, #{frame,jdbcType=VARCHAR}, 
+      #{seller,jdbcType=VARCHAR}, #{buyDate,jdbcType=DATE}, #{insuranceNub,jdbcType=VARCHAR}, 
+      #{insuranceCmp,jdbcType=VARCHAR}, #{insuranceType,jdbcType=VARCHAR}, #{insuranceStartTime,jdbcType=VARCHAR}, 
+      #{insuranceEndTime,jdbcType=VARCHAR}, #{deposit,jdbcType=VARCHAR}, #{dayRent,jdbcType=INTEGER}, 
+      #{weekRent,jdbcType=INTEGER}, #{monthRent,jdbcType=INTEGER}, #{weekendRent,jdbcType=INTEGER}, 
+      #{dayLimitKm,jdbcType=INTEGER}, #{overtimeRent,jdbcType=INTEGER}, #{overkmRent,jdbcType=INTEGER}, 
+      #{state,jdbcType=INTEGER}, #{note,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.bean.Car">
+    insert into car_infor
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="nub != null">
+        nub,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="color != null">
+        color,
+      </if>
+      <if test="engine != null">
+        engine,
+      </if>
+      <if test="frame != null">
+        frame,
+      </if>
+      <if test="seller != null">
+        seller,
+      </if>
+      <if test="buyDate != null">
+        buy_date,
+      </if>
+      <if test="insuranceNub != null">
+        insurance_nub,
+      </if>
+      <if test="insuranceCmp != null">
+        insurance_cmp,
+      </if>
+      <if test="insuranceType != null">
+        insurance_type,
+      </if>
+      <if test="insuranceStartTime != null">
+        insurance_start_time,
+      </if>
+      <if test="insuranceEndTime != null">
+        insurance_end_time,
+      </if>
+      <if test="deposit != null">
+        deposit,
+      </if>
+      <if test="dayRent != null">
+        day_rent,
+      </if>
+      <if test="weekRent != null">
+        week_rent,
+      </if>
+      <if test="monthRent != null">
+        month_rent,
+      </if>
+      <if test="weekendRent != null">
+        weekend_rent,
+      </if>
+      <if test="dayLimitKm != null">
+        day_limit_km,
+      </if>
+      <if test="overtimeRent != null">
+        overtime_rent,
+      </if>
+      <if test="overkmRent != null">
+        overkm_rent,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="nub != null">
+        #{nub,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null">
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="engine != null">
+        #{engine,jdbcType=VARCHAR},
+      </if>
+      <if test="frame != null">
+        #{frame,jdbcType=VARCHAR},
+      </if>
+      <if test="seller != null">
+        #{seller,jdbcType=VARCHAR},
+      </if>
+      <if test="buyDate != null">
+        #{buyDate,jdbcType=DATE},
+      </if>
+      <if test="insuranceNub != null">
+        #{insuranceNub,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceCmp != null">
+        #{insuranceCmp,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceType != null">
+        #{insuranceType,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceStartTime != null">
+        #{insuranceStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceEndTime != null">
+        #{insuranceEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="deposit != null">
+        #{deposit,jdbcType=VARCHAR},
+      </if>
+      <if test="dayRent != null">
+        #{dayRent,jdbcType=INTEGER},
+      </if>
+      <if test="weekRent != null">
+        #{weekRent,jdbcType=INTEGER},
+      </if>
+      <if test="monthRent != null">
+        #{monthRent,jdbcType=INTEGER},
+      </if>
+      <if test="weekendRent != null">
+        #{weekendRent,jdbcType=INTEGER},
+      </if>
+      <if test="dayLimitKm != null">
+        #{dayLimitKm,jdbcType=INTEGER},
+      </if>
+      <if test="overtimeRent != null">
+        #{overtimeRent,jdbcType=INTEGER},
+      </if>
+      <if test="overkmRent != null">
+        #{overkmRent,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.bean.CarExample" resultType="java.lang.Long">
+    select count(*) from car_infor
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update car_infor
+    <set>
+      <if test="record.nub != null">
+        nub = #{record.nub,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.color != null">
+        color = #{record.color,jdbcType=VARCHAR},
+      </if>
+      <if test="record.engine != null">
+        engine = #{record.engine,jdbcType=VARCHAR},
+      </if>
+      <if test="record.frame != null">
+        frame = #{record.frame,jdbcType=VARCHAR},
+      </if>
+      <if test="record.seller != null">
+        seller = #{record.seller,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buyDate != null">
+        buy_date = #{record.buyDate,jdbcType=DATE},
+      </if>
+      <if test="record.insuranceNub != null">
+        insurance_nub = #{record.insuranceNub,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insuranceCmp != null">
+        insurance_cmp = #{record.insuranceCmp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insuranceType != null">
+        insurance_type = #{record.insuranceType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insuranceStartTime != null">
+        insurance_start_time = #{record.insuranceStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insuranceEndTime != null">
+        insurance_end_time = #{record.insuranceEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deposit != null">
+        deposit = #{record.deposit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dayRent != null">
+        day_rent = #{record.dayRent,jdbcType=INTEGER},
+      </if>
+      <if test="record.weekRent != null">
+        week_rent = #{record.weekRent,jdbcType=INTEGER},
+      </if>
+      <if test="record.monthRent != null">
+        month_rent = #{record.monthRent,jdbcType=INTEGER},
+      </if>
+      <if test="record.weekendRent != null">
+        weekend_rent = #{record.weekendRent,jdbcType=INTEGER},
+      </if>
+      <if test="record.dayLimitKm != null">
+        day_limit_km = #{record.dayLimitKm,jdbcType=INTEGER},
+      </if>
+      <if test="record.overtimeRent != null">
+        overtime_rent = #{record.overtimeRent,jdbcType=INTEGER},
+      </if>
+      <if test="record.overkmRent != null">
+        overkm_rent = #{record.overkmRent,jdbcType=INTEGER},
+      </if>
+      <if test="record.state != null">
+        state = #{record.state,jdbcType=INTEGER},
+      </if>
+      <if test="record.note != null">
+        note = #{record.note,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update car_infor
+    set nub = #{record.nub,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      color = #{record.color,jdbcType=VARCHAR},
+      engine = #{record.engine,jdbcType=VARCHAR},
+      frame = #{record.frame,jdbcType=VARCHAR},
+      seller = #{record.seller,jdbcType=VARCHAR},
+      buy_date = #{record.buyDate,jdbcType=DATE},
+      insurance_nub = #{record.insuranceNub,jdbcType=VARCHAR},
+      insurance_cmp = #{record.insuranceCmp,jdbcType=VARCHAR},
+      insurance_type = #{record.insuranceType,jdbcType=VARCHAR},
+      insurance_start_time = #{record.insuranceStartTime,jdbcType=VARCHAR},
+      insurance_end_time = #{record.insuranceEndTime,jdbcType=VARCHAR},
+      deposit = #{record.deposit,jdbcType=VARCHAR},
+      day_rent = #{record.dayRent,jdbcType=INTEGER},
+      week_rent = #{record.weekRent,jdbcType=INTEGER},
+      month_rent = #{record.monthRent,jdbcType=INTEGER},
+      weekend_rent = #{record.weekendRent,jdbcType=INTEGER},
+      day_limit_km = #{record.dayLimitKm,jdbcType=INTEGER},
+      overtime_rent = #{record.overtimeRent,jdbcType=INTEGER},
+      overkm_rent = #{record.overkmRent,jdbcType=INTEGER},
+      state = #{record.state,jdbcType=INTEGER},
+      note = #{record.note,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.bean.Car">
+    update car_infor
+    <set>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null">
+        color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="engine != null">
+        engine = #{engine,jdbcType=VARCHAR},
+      </if>
+      <if test="frame != null">
+        frame = #{frame,jdbcType=VARCHAR},
+      </if>
+      <if test="seller != null">
+        seller = #{seller,jdbcType=VARCHAR},
+      </if>
+      <if test="buyDate != null">
+        buy_date = #{buyDate,jdbcType=DATE},
+      </if>
+      <if test="insuranceNub != null">
+        insurance_nub = #{insuranceNub,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceCmp != null">
+        insurance_cmp = #{insuranceCmp,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceType != null">
+        insurance_type = #{insuranceType,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceStartTime != null">
+        insurance_start_time = #{insuranceStartTime,jdbcType=VARCHAR},
+      </if>
+      <if test="insuranceEndTime != null">
+        insurance_end_time = #{insuranceEndTime,jdbcType=VARCHAR},
+      </if>
+      <if test="deposit != null">
+        deposit = #{deposit,jdbcType=VARCHAR},
+      </if>
+      <if test="dayRent != null">
+        day_rent = #{dayRent,jdbcType=INTEGER},
+      </if>
+      <if test="weekRent != null">
+        week_rent = #{weekRent,jdbcType=INTEGER},
+      </if>
+      <if test="monthRent != null">
+        month_rent = #{monthRent,jdbcType=INTEGER},
+      </if>
+      <if test="weekendRent != null">
+        weekend_rent = #{weekendRent,jdbcType=INTEGER},
+      </if>
+      <if test="dayLimitKm != null">
+        day_limit_km = #{dayLimitKm,jdbcType=INTEGER},
+      </if>
+      <if test="overtimeRent != null">
+        overtime_rent = #{overtimeRent,jdbcType=INTEGER},
+      </if>
+      <if test="overkmRent != null">
+        overkm_rent = #{overkmRent,jdbcType=INTEGER},
+      </if>
+      <if test="state != null">
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where nub = #{nub,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.bean.Car">
+    update car_infor
+    set type = #{type,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      color = #{color,jdbcType=VARCHAR},
+      engine = #{engine,jdbcType=VARCHAR},
+      frame = #{frame,jdbcType=VARCHAR},
+      seller = #{seller,jdbcType=VARCHAR},
+      buy_date = #{buyDate,jdbcType=DATE},
+      insurance_nub = #{insuranceNub,jdbcType=VARCHAR},
+      insurance_cmp = #{insuranceCmp,jdbcType=VARCHAR},
+      insurance_type = #{insuranceType,jdbcType=VARCHAR},
+      insurance_start_time = #{insuranceStartTime,jdbcType=VARCHAR},
+      insurance_end_time = #{insuranceEndTime,jdbcType=VARCHAR},
+      deposit = #{deposit,jdbcType=VARCHAR},
+      day_rent = #{dayRent,jdbcType=INTEGER},
+      week_rent = #{weekRent,jdbcType=INTEGER},
+      month_rent = #{monthRent,jdbcType=INTEGER},
+      weekend_rent = #{weekendRent,jdbcType=INTEGER},
+      day_limit_km = #{dayLimitKm,jdbcType=INTEGER},
+      overtime_rent = #{overtimeRent,jdbcType=INTEGER},
+      overkm_rent = #{overkmRent,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      note = #{note,jdbcType=VARCHAR}
+    where nub = #{nub,jdbcType=VARCHAR}
+  </update>
+</mapper>

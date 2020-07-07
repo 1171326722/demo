@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.CmpMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.bean.Cmp">
+    <id column="cmp_nub" jdbcType="INTEGER" property="cmpNub" />
+    <result column="cmp_name" jdbcType="VARCHAR" property="cmpName" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="adr" jdbcType="VARCHAR" property="adr" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="cmp_type" jdbcType="VARCHAR" property="cmpType" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    cmp_nub, cmp_name, tel, adr, email, cmp_type, note
+  </sql>
+  <select id="selectByExample" parameterType="com.example.demo.bean.CmpExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cmp_infor
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from cmp_infor
+    where cmp_nub = #{cmpNub,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from cmp_infor
+    where cmp_nub = #{cmpNub,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.bean.CmpExample">
+    delete from cmp_infor
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.bean.Cmp">
+    insert into cmp_infor (cmp_nub, cmp_name, tel, 
+      adr, email, cmp_type, 
+      note)
+    values (#{cmpNub,jdbcType=INTEGER}, #{cmpName,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{adr,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{cmpType,jdbcType=VARCHAR}, 
+      #{note,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.bean.Cmp">
+    insert into cmp_infor
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cmpNub != null">
+        cmp_nub,
+      </if>
+      <if test="cmpName != null">
+        cmp_name,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="adr != null">
+        adr,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="cmpType != null">
+        cmp_type,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cmpNub != null">
+        #{cmpNub,jdbcType=INTEGER},
+      </if>
+      <if test="cmpName != null">
+        #{cmpName,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="adr != null">
+        #{adr,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="cmpType != null">
+        #{cmpType,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.bean.CmpExample" resultType="java.lang.Long">
+    select count(*) from cmp_infor
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update cmp_infor
+    <set>
+      <if test="record.cmpNub != null">
+        cmp_nub = #{record.cmpNub,jdbcType=INTEGER},
+      </if>
+      <if test="record.cmpName != null">
+        cmp_name = #{record.cmpName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tel != null">
+        tel = #{record.tel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adr != null">
+        adr = #{record.adr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cmpType != null">
+        cmp_type = #{record.cmpType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.note != null">
+        note = #{record.note,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update cmp_infor
+    set cmp_nub = #{record.cmpNub,jdbcType=INTEGER},
+      cmp_name = #{record.cmpName,jdbcType=VARCHAR},
+      tel = #{record.tel,jdbcType=VARCHAR},
+      adr = #{record.adr,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      cmp_type = #{record.cmpType,jdbcType=VARCHAR},
+      note = #{record.note,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.bean.Cmp">
+    update cmp_infor
+    <set>
+      <if test="cmpName != null">
+        cmp_name = #{cmpName,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="adr != null">
+        adr = #{adr,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="cmpType != null">
+        cmp_type = #{cmpType,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where cmp_nub = #{cmpNub,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.bean.Cmp">
+    update cmp_infor
+    set cmp_name = #{cmpName,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      adr = #{adr,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      cmp_type = #{cmpType,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR}
+    where cmp_nub = #{cmpNub,jdbcType=INTEGER}
+  </update>
+</mapper>
