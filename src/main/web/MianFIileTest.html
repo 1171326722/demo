@@ -1,0 +1,609 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我的一嗨</title>
+    <link rel="shortcut icon" href="https://www.1hai.cn/favicon.ico?v=4377133823694a1ab20f196ef926f199" type="image/x-icon" />
+    <link href="/Content/bootstrap.min.css?v=4377133823694a1ab20f196ef926f199" rel="stylesheet" />
+    <link href="/Content/Global.css?v=4377133823694a1ab20f196ef926f199" rel="stylesheet" />
+    <link href="/Content/LoginOrRegister/loginRegister.css?v=4377133823694a1ab20f196ef926f199" rel="stylesheet" />
+    <script type="text/javascript">
+        //移动终端判断 true 移动终端 false否
+        var u = navigator.userAgent;
+        if (!!u.match(/AppleWebKit.*Mobile.*/) == false && u.indexOf('Android') == -1 && u.indexOf('iPhone') == -1 && u.indexOf('iPad') == -1) {
+            //web浏览器
+        } else {
+            var reqUrl = location.href;
+            var pc = sessionStorage.getItem("pc");
+            if (reqUrl.indexOf('mehi=F') === -1 && pc !== "1") {
+                window.location.href = "https://m.1hai.cn/";
+            }
+            window.sessionStorage["pc"] = "1";
+        }
+    </script>
+
+
+    <link href="/Content/ShowBox/mshowBox.css?v=4377133823694a1ab20f196ef926f199" rel="stylesheet" />
+
+
+</head>
+<body>
+<div>
+    <div class="header">
+        <div class="head-top">
+            <div class="w1180 top-linkbox clear_float">
+                <div class="top-link fl">
+                <span class="top-link-bold" id="spanLogin">
+                        <span>您好，153****288</span>
+<a href="/User/Logout">[退出]</a>                </span>
+                    <span>|</span>
+                    <a href="/">我的一嗨</a>
+                </div>
+                <div class="top-link fr">
+                    <a href="https://www.1hai.cn/NewHelp/Index" target="_blank">帮助中心</a>
+                    <span>|</span>
+                    <div class="site-map">
+                        <a class="site-map-drop" target="_blank" href="https://www.1hai.cn/sitemap.aspx?from=header">网站导航<em class="sit-map-up dropicon"></em></a>
+                        <div class="site-mapinfo">
+                            <div class="cover-map"></div>
+                            <div class="site-map-title">
+                                租车服务
+                            </div>
+                            <p class="site-map-link">
+                                <a href="https://www.1hai.cn/?from=header" target="_blank">自驾预订</a>
+                                <a href="https://corporate.1hai.cn/" target="_blank">企业服务</a>
+                                <a href="https://www.1hai.cn/City/?from=header" target="_blank">营业网点</a>
+                                <a href="https://booking.1hai.cn/Order/BrandStep1/?from=header" target="_blank">车型查询</a>
+                                <a href="https://news.1hai.cn/News/Dynamic/Activity" target="_blank">精彩活动</a>
+                                <a href="https://www.1hai.cn/help/RentCarService.aspx" target="_blank">租车协议</a>
+                                <a href="https://international.1hai.cn/" target="_blank">国际租车</a>
+                            </p>
+                            <div class="site-map-title">
+                                活动产品
+                            </div>
+                            <p class="site-map-link">
+                                <a href="https://www.1hai.cn/ppl_tiyan.aspx?from=header" target="_blank">体验分享</a>
+                                <a href="https://www.1hai.cn/activity/mobile.aspx" target="_blank">移动客户端</a>
+                            </p>
+                            <div class="site-map-title">
+                                帮助中心
+                            </div>
+                            <p class="site-map-link">
+                                <a href="https://www.1hai.cn/NewHelp/Index" target="_blank">帮助中心</a>
+                                <a href="https://www.1hai.cn/help/advice.aspx" target="_blank">建议专区</a>
+                                <a href="https://www.1hai.cn/NewHelp/HelpContent?menuId=28&amp;isLimitRules=False" target="_blank">联系我们</a>
+                            </p>
+                            <div class="site-map-title">
+                                其他内容
+                            </div>
+                            <p class="site-map-link">
+                                <a href="https://news.1hai.cn/News/About/" target="_blank">一嗨简介</a>
+                                <a href="https://news.1hai.cn/News" target="_blank">一嗨动态</a>
+                                <a href="https://www.1hai.cn/more/link.aspx?from=header" target="_blank">友情链接</a>
+                                <a href="https://en.1hai.cn/" target="_blank">English</a>
+                            </p>
+                            <div class="site-map-more">
+                                <a href="https://www.1hai.cn/sitemap.aspx?from=header" target="_blank">访问网站地图>></a>
+                            </div>
+                        </div>
+                    </div>
+                    <span>|</span>
+                    <a href="https://en.1hai.cn/" target="_blank">English</a>
+                    <span>|</span>
+                    <div class="site-contact">
+                        <span class="contact-phone">400-888-6608<em class="contact-up dropicon"></em></span>
+                        <div class="contact-info">
+                            <div class="cover-contact"></div>
+                            港澳台及海外电话
+                            <em>+86-511-81886608</em>
+                        </div>
+                    </div>
+                    <span>|</span>
+                    <div class="site-wx">
+                        <span class="wx-title">微信</span>
+                        <div class="wx-info">
+                            <div class="cover-wx"></div>
+                            <img src="https://externalimage.1hai.cn/160/e5a976e94754428da5e70775e58c07ab.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="head-bottom">
+            <div class="w1180">
+                <a href="https://www.1hai.cn/" class="logo"></a>
+                <div class="nav">
+                    <ul class="nav-wrap clear_float" id="J_NavBox">
+                        <li><a href="https://www.1hai.cn/index.aspx?from=Nav" target="_blank">首页</a><span></span></li>
+                        <li><a href="https://booking.1hai.cn/?from=NavIndex&amp;IsBatch=false" target="_blank">自驾租车</a><span></span></li>
+                        <li><a href="https://international.1hai.cn/" target="_blank">国际租车</a><span></span><em></em></li>
+                        <li><a href="https://booking.1hai.cn/Order/BrandStep1/?from=NavBrandIndex" target="_blank">车型查询</a><span></span></li>
+                        <li><a href="https://www.1hai.cn/City/?from=Nav" target="_blank" class="selected">营业网点</a><span></span></li>
+                        <li><a href="https://corporate.1hai.cn/?from=Nav" target="_blank">企业服务</a><span></span></li>
+                        <li><a href="https://www.1hai.cn/guide.aspx?from=Nav" target="_blank">接送服务</a><span></span></li>
+                        <li><a href="https://news.1hai.cn/News/Dynamic/Activity" target="_blank">精彩活动</a><span></span></li>
+                        <li><a href="https://www.1hai.cn/ppl_tiyan.aspx?from=Nav" target="_blank">体验分享</a><span></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="crumbs">
+        <div class="crumbs-bd">
+            当前位置：
+            <a href="/">我的一嗨</a> &gt;
+
+        </div>
+    </div><!-- /crumbs -->
+
+    <div id="content">
+        <div class="content-bd">
+
+            <div class="col-main">
+
+
+
+                <div id="logOrReg">
+                </div>
+
+                <div class="mod user-preview">
+                    <ul class="hd">
+                        <li>
+                            <h3>可用余额</h3>
+                            <p class="number">
+                                <sup class="ui-rmb">&yen;</sup>0
+
+                            </p>
+                            <a href="/Asset/Account">我要充值</a>
+                        </li>
+                        <li>
+                            <h3>可用积分</h3>
+                            <p class="number">0分</p>
+                            <a href="/Asset/Point/Mall">去积分商城</a>
+
+                        </li>
+                    </ul>
+
+                    <div class="ui-bfc bd">
+                        <div class="ui-bfc-hd user-preview-img">
+                            <img src="/Content/Images/bg_user_photo.png" width="114" height="114" alt="我的头像" />
+                            <p><a href="/UserCenter">编辑我的资料</a></p>
+                        </div>
+                        <div class="ui-bfc-bd user-preview-info">
+                            <h1>欢迎您，</h1>
+                            <ul>
+                                <li>
+                                    <span>持有卡：</span>普卡 <em>(成长值：0)</em>
+                                </li>
+                                <li>
+                                    <div class="upgrade-box">
+                                        <div class="upgrade-card clear_float">
+                                            <span class="card-pk">普卡</span>
+                                            <span class="card-jk">金卡</span>
+                                            <span class="card-bjk">白金卡</span>
+                                            <span class="card-zsk">钻石卡</span>
+                                        </div>
+
+
+                                        <div class="upgrade-process clear_float">
+                                            <span class="upgrade-dot upgrade-pass"></span>
+                                            <div class="progressbox">
+                                                <div class="progress-upgrade" style="width: 0%;"></div>
+
+                                            </div>
+                                            <span class="upgrade-dot"></span>
+                                            <div class="progressbox">
+                                                <div class="progress-upgrade" style="width: 0;"></div>
+
+                                            </div>
+                                            <span class="upgrade-dot"></span>
+                                            <div class="progressbox">
+                                                <div class="progress-upgrade" style="width: 0;"></div>
+
+                                            </div>
+                                            <span class="upgrade-dot"></span>
+                                        </div>
+                                        <div class="upgrade-num clear_float">
+                                            <span class="card-pk">0</span>
+                                            <span class="card-jk">2000</span>
+                                            <span class="card-bjk">6000</span>
+                                            <span class="card-zsk">18000</span>
+                                        </div>
+                                    </div>
+                                    <a class="upgrade-hy" data-toggle="modal" data-target="#UpgradeRule" href="javascript:void(0)">升级规则</a>
+                                </li>
+                                <li>
+                                    <span>爱车指数：</span><em class="sp-aczs"><i class="lv5"></i></em><text>5 级</text>
+                                    <p class="pop-tip"><i class="arrow-left"></i>(距离6级还差 15 天租车期)<a href="https://www.1hai.cn/NewHelp/HelpContent?menuId=9&amp;isLimitRules=False" title="爱车指数说明">说明</a></p>
+                                </li>
+                                <li><span>我的优惠编码：</span><strong class="orange">0 </strong>张</li>
+                                <li><span>我的代金券：</span><strong class="orange">0 </strong>张</li>
+                                <li>
+                                    <span>邮箱：</span>未验证
+
+                                    <a href="/UserCenter/MyInfo/ValidateEmail">立即验证</a>
+                                    <span style="color: #e85e03;">即刻完成邮箱验证，500积分轻松到手哦！</span>
+                                </li>
+                                <li>
+                                    <span>手机：</span>已验证
+                                    <a href="/UserCenter/MyInfo/ValidatePhone">立即修改</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /user-preview -->
+
+                <div class="privilege-box mod" id="userPrivilege">
+                </div>
+
+                <div class="member-activity mod">
+                    <h2>会员专属活动</h2>
+
+                    <a href="https://market.1hai.cn/ActivePageWeb/CommonPage?aid=1956" target="_blank"><img src="https://img.1hai.cn/groupf1/M00/8F/02/rBQFH10-pOaAMdb2AACGSoHBLLw362.jpg" alt="会员专属活动" /></a>
+                </div>
+
+                <div class="J_TabSwitch mod recent-order order-list">
+                    <div class="hd clearfix">
+                        <h2>最近订单</h2>
+                        <ul class="ui-tab-hd">
+                            <li class="ck"><a class="orderTab" data-table-class="reserving" href="javascript:void(0)">预约中</a></li>
+                            <li><a class="orderTab" data-table-class="renting" href="javascript:void(0)">租赁中</a></li>
+                            <li><a class="orderTab" data-table-class="complete" href="javascript:void(0)">已完成</a></li>
+                        </ul>
+                    </div>
+                    <div class="bd">
+                        <div class="ui-loading">
+                            <p>正在加载...</p>
+                        </div>
+
+                        <div class="ui-tab-bd">
+                            <div class="ui-table-list reserving" data-status="Reservation" style="display: none;"></div>
+                            <div class="ui-table-list renting" data-status="Lease" style="display: none;"></div>
+                            <div class="ui-table-list complete" data-status="Complete" style="display: none;"></div>
+                        </div>
+                        <div class="order-list-null" style="display: none;">
+                            <p>您还没有订单，现在就去订车吧！</p>
+                            <a class="ui-btn ui-btn-orange-l" href="https://booking.1hai.cn/"><span>立即预订</span></a>
+                        </div>
+                        <p class="order-list-all">
+                            <a href="/Order/MyOrders">查看所有订单</a>
+                        </p>
+                    </div>
+                </div>
+                <!-- /recent-orders -->
+
+                <div class="ui-bfc mod">
+                    <div class="ui-bfc-hd promotion-list">
+                        <h2 class="hd"><a href="https://news.1hai.cn/News/Dynamic/Activity">更多</a>优惠活动</h2>
+                        <ul class="bd">
+                            <li><span>2020-06-02</span><a href="https://market.1hai.cn/ActivePageWeb/CommonPage?aid=2293">初夏自驾从这里出发</a></li>
+                            <li><span>2020-06-02</span><a href="https://market.1hai.cn/ActivePageWeb/CommonPage?aid=2269">千元豪华大礼包</a></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="ui-bfc-bd helper-info">
+                        <h2 class="hd">温馨提示</h2>
+                        <ol>
+                            <li>1、取车时请务必携带<strong class="orange">本人信用卡，本人二代有效身份证，本人有效地方驾驶证正副本</strong>。</li>
+                            <li>2、可能因地区政策及车牌原因影响交通限行，请及时查看全国地区限行说明。</li>
+                            <li>3、您在一嗨租车所涉及的正常消费，均可向一嗨工作人员索要消费凭证。</li>
+                        </ol>
+                        <div class="bd clearfix">
+                            <img src="https://externalimage.1hai.cn/160/4ffdf2a079c34221a51d949726acfbcd.png" width="128" height="128" alt="" />
+                            <div class="txt">
+                                <p>扫描二维码，下载APP</p>
+                                <p>第一时间查询您的订单</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="UpgradeRule" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                    ×
+                                </button>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    升级规则：
+                                </h4>
+                            </div>
+                            <div class="modal-body upgrade-rule">
+                                <p>普卡：注册即成为一嗨普卡会员</p>
+                                <p>金卡：成长值满2000</p>
+                                <p>白金卡：成长值满6000</p>
+                                <p>钻石卡会员：成长值满18000</p>
+                                <br>
+                                <p><strong>升级：</strong>自2016年1月1日起，凡租期≤60天的自驾订单，每实际支付1元有效金额可获得1个成长值；租期＞60天的自驾订单，以租期前60日的费用计算，每实际支付1元有效金额获得1个成长值，60日后的费用不计入成长值。其中，由于车辆事故、超时服务费、加油服务费所产生的费用不计入成长值。成长值决定会员卡别，达到卡别标准即自动升级。</p>
+                                <p><strong>降级：</strong>每年年初对除普卡外，会员卡别到期的用户进行降级审核，将在当前成长值上扣除相应成长值后，根据剩余成长值重新定级。</p>
+                                <br>
+
+                                <p>会员升级标准及各等级会员可享优惠如下：</p>
+                                <table class="upgrade-table text-center">
+                                    <thead>
+                                    <tr>
+                                        <td width="120">&nbsp;</td>
+                                        <td width="80">普卡会员</td>
+                                        <td>金卡会员</td>
+                                        <td>白金卡会员</td>
+                                        <td>钻石卡会员</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><strong>升级要求</strong></td>
+                                        <td>注册成功即可成为普卡会员</td>
+                                        <td>达到2000成长值</td>
+                                        <td>达到6000成长值</td>
+                                        <td>达到18000成长值</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>有效期</strong></td>
+                                        <td>永久</td>
+                                        <td>升级之日起至次年12月31日</td>
+                                        <td>升级之日起至次年12月31日</td>
+                                        <td>升级之日起至次年12月31日</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>降级规则</strong></td>
+                                        <td>-</td>
+                                        <td>扣除1000成长值，根据剩余成长值重新定级</td>
+                                        <td>扣除2400成长值，根据剩余成长值重新定级</td>
+                                        <td>扣除10000成长值，根据剩余成长值重新定级</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5"><strong>会员权益</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>生日优惠</td>
+                                        <td>50元</td>
+                                        <td>100元</td>
+                                        <td>200元</td>
+                                        <td>300元</td>
+                                    </tr>
+                                    <tr>
+                                        <td>会员积分</td>
+                                        <td>1:1</td>
+                                        <td>1:1.5</td>
+                                        <td>1:2</td>
+                                        <td>1:2.5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>还车券</td>
+                                        <td>√</td>
+                                        <td>√</td>
+                                        <td>√</td>
+                                        <td>√</td>
+                                    </tr>
+                                    <tr>
+                                        <td>免费车型组升级</td>
+                                        <td>1次</td>
+                                        <td>2次</td>
+                                        <td>3次</td>
+                                        <td>4次</td>
+                                    </tr>
+                                    <tr>
+                                        <td>免除加油服务费</td>
+                                        <td>-</td>
+                                        <td>1次</td>
+                                        <td>2次</td>
+                                        <td>3次</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2小时免费延时还车</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>1次</td>
+                                        <td>4次</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <br>
+
+                                <p><strong>权益说明</strong></p>
+                                <p><strong>生日优惠</strong>&nbsp;&nbsp;生日优惠使用有效期为获得之日起60天有效；仅对租金部分进行减免，其他费用正常收取；一年内仅可享受一次生日优惠，生日优惠券发放后不予退、换，不可与其他优惠同享，节假日订单不可用；仅限一嗨国内自驾业务可用。</p><br>
+                                <p><strong>还车券</strong>&nbsp;&nbsp;还车后可获得一张还车券，下一张订单可用，具体参见优惠券规则。</p><br>
+                                <p><strong>免费车型组升级</strong>&nbsp;&nbsp;可升级车型组以系统提供可选车型组为准；升级后的基本保障服务费、车辆押金可能发生变化，以费用明细中显示的金额为准；该权益不兑现、不找零，不可叠加使用，不与其他优惠同享。</p><br>
+                                <p><strong>免除加油服务费</strong>&nbsp;&nbsp;还车时如需加油，则无需支付服务费，只需支付油费，法定节假日的订单不可用。</p><br>
+                                <p><strong>2小时免费延时还车</strong>&nbsp;&nbsp;延时还车时间不超过2小时不收取延时还车费；不适用于精英车型/车型组订单、高端车型/车型组订单、续租订单，以及代金券支付的订单，且节假日订单不可用；还车时间需在还车日当天的门店营业时间内。如：预约还车时间为19:00，门店营业时间为10:00-20:00，则最晚需在20:00前还车。</p><br>
+                                <p><strong>所有会员权益仅限一嗨国内自驾业务。</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="PrivilegeType"></div>
+
+            </div>
+
+            <!--站点导航-->
+
+
+            <div class="col-sub">
+                <dl class="sub-nav">
+
+                    <dt>我的订单</dt>
+                    <dd>
+                        <a class="" href="/Order/MyOrders">订单管理</a>
+                    </dd>
+                    <dd>
+                        <a class="" href="/Order/InternationalOrder">国际订单</a>
+                    </dd>
+                    <dd>
+                        <a class="" href="/Order/DriverOrder">他人代订</a>
+                    </dd>
+                    <dt>我的资产</dt>
+                    <dd>
+                        <a class="" href="/Asset/Account">账户余额</a>
+                    </dd>
+                    <dd>
+                        <a class="" href="/Asset/GiftCard">我的代金券</a>
+                    </dd>
+                    <dd>
+                        <a class="" href="/Asset/Promotion">我的优惠编码</a>
+                    </dd>
+                    <dd>
+                        <a class="" href="/Asset/MyPoint">我的积分</a>
+                    </dd>
+                    <dt>个人中心</dt>
+                    <dd>
+                        <a class="" href="/UserCenter">用户信息</a>
+                    </dd>
+                    <dd>
+                        <a class="" href="/UserCenter/MyDrivers">常用租车人</a>
+                    </dd>
+                    <dd>
+                        <a class="" href="/UserCenter/MyInvoices">我的发票</a>
+                    </dd>
+                    <dd>
+                        <a class="" href="/UserCenter/MyVATInvoices">增票资质</a>
+                    </dd>
+                    <dd>
+                        <a class="" href="/UserCenter/MyViolation">我的违章</a>
+                    </dd>
+                    <dd>
+                        <a class="" href="/UserCenter/MyComplaint">在线投诉</a>
+                    </dd>
+                    <dd>
+                        <a class="" href="/Asset/Point/Mall">积分商城</a>
+                    </dd>
+                    <dd>
+                        <a class="" href="/UserCenter/MyEnterprise">企业信息</a>
+                    </dd>
+                    <dd>
+                        <a class="" href="/UserCenter/AccountLogout">申请注销账户</a>
+                    </dd>
+
+                </dl>
+            </div>
+            <!--站点导航-->
+        </div>
+    </div>
+
+
+
+    <div id="footer" class="footer">
+        <div class="footer-bd clearfix">
+            <div class="footer-nav">
+                <p>
+                    <a href="https://news.1hai.cn/About/" rel="nofollow" target="_blank">关于一嗨</a>
+                    |
+                    <a href="https://www.1hai.cn/activity/mobile.aspx" rel="nofollow" target="_blank">移动客户端</a>
+                    |
+                    <a href="https://www.1hai.cn/NewHelp/Index" rel="nofollow" target="_blank">帮助中心</a>
+                    |
+                    <a href="https://www.1hai.cn/help/advice.aspx" rel="nofollow" target="_blank">建议专区</a>
+                    |
+                    <a href="https://www.1hai.cn/NewHelp/HelpContent?menuId=28&amp;isLimitRules=False" rel="nofollow" target="_blank">联系我们</a>
+                    |
+                    <a href="https://www.1hai.cn/more/link.aspx" rel="nofollow" target="_blank">友情链接</a>
+                    <span class="tel">投诉通道：400-821-1608</span>
+                </p>
+                <p>
+                    Copyright &copy; 2007-2020 上海一嗨信息技术服务有限公司
+                    <a href="http://www.miibeian.gov.cn/" target="_blank">ICP证：沪B2-20140130</a>
+                </p>
+            </div>
+
+            <div class="footer-right">
+                <a href="https://www.sgs.gov.cn/lz/licenseLink.do?method=licenceView&entyId=20120327164136446" target="_blank">
+                    <img src="/Content/Images/foot_shgs.png" />
+                </a>
+                <a href="http://www.zx110.org/" target="_blank">
+                    <img src="/Content/Images/foot_zxw.png" />
+                </a>
+                <a href="https://shuidi.cn/companyextreme-0752d1acddc459c11bb8f943671a3347.html" target="_blank" style="vertical-align: -3px;">
+                    <img src="/Content/Images/foot_sdxy.png" />
+                </a>
+                <a href="http://sealinfo.trustutn.org/info?sn=970161104025192983174" target="_blank" style="vertical-align: -3px;">
+                    <img src="/Content/Images/foot_ppgw.png" />
+                </a>
+                <a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31010702001166" target="_blank" style="vertical-align: -3px;">
+                    <img src="/Content/Images/foot_hgwab.png" />
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Script -->
+<script src="/bundles/jquery?v=M6dmVkrHVhoZ1gfOtvVDZbgBcQTsbWxoLsRizcGkbPk1"></script>
+
+<script src="/bundles/bootstrap?v=y06_79Ad8PBEWhAqU8oC7bf_QdxhPF_kt4ClTo6bnGw1"></script>
+
+<script src="/Scripts/portal-header.js?v=4377133823694a1ab20f196ef926f199"></script>
+
+<script src="/Scripts/global.js?v=4377133823694a1ab20f196ef926f199"></script>
+
+<script>
+    var URL = {
+        queryOrders: '/Home/Orders',
+        userPrivilege: '/Home/UserPrivilege',
+        userPrivilegeDesc: '/Home/UserPrivilegeDesc',
+        cashpromotion: '/Home/SendCashPromotion',
+        freepromotion: '/Home/SendPromotion'
+    };
+
+</script>
+<script src="/Scripts/home.js?v=4377133823694a1ab20f196ef926f199"></script>
+<script src="/Scripts/mshowBox.js?v=4377133823694a1ab20f196ef926f199"></script>
+
+
+<script type="text/javascript">
+    $.ajaxSetup({
+        statusCode: {
+            800: function (data) {
+                window.location.href = '/LoginOrRegister';
+            }
+        }
+    });
+</script>
+
+
+<script src="/Scripts/monitor-my.js?v=4377133823694a1ab20f196ef926f199"></script>
+<script src="/Scripts/AdmasterMonitor.js?v=637302289580311076"></script>
+<script>
+    (function (para) {
+        var p = para.sdk_url, n = para.name, w = window, d = document, s = 'script', x = null, y = null;
+        if (typeof (w['sensorsDataAnalytic201505']) !== 'undefined') {
+            return false;
+        }
+        w['sensorsDataAnalytic201505'] = n;
+        w[n] = w[n] || function (a) { return function () { (w[n]._q = w[n]._q || []).push([a, arguments]); } };
+        var ifs = ['track', 'quick', 'register', 'registerPage', 'registerOnce', 'trackSignup', 'trackAbtest', 'setProfile', 'setOnceProfile', 'appendProfile', 'incrementProfile', 'deleteProfile', 'unsetProfile', 'identify', 'login', 'logout', 'trackLink', 'clearAllRegister', 'getAppStatus'];
+        for (var i = 0; i < ifs.length; i++) {
+            w[n][ifs[i]] = w[n].call(null, ifs[i]);
+        }
+        if (!w[n]._t) {
+            x = d.createElement(s), y = d.getElementsByTagName(s)[0];
+            x.async = 0;
+            x.src = p;
+            x.setAttribute('charset', 'UTF-8');
+            y.parentNode.insertBefore(x, y);
+            w[n].para = para;
+        }
+    })({
+        sdk_url: 'https://static.sensorsdata.cn/sdk/1.12.3/sensorsdata.min.js',
+        heatmap_url: 'https://static.sensorsdata.cn/sdk/1.12.3/heatmap.min.js',
+        name: 'ehiSensors',
+        web_url: 'https://sensors.1hai.cn:9443/?project=production',
+        server_url: 'https://sensors.1hai.cn:11621/sa?project=production',
+        heatmap: {}
+    });
+    ehiSensors.registerPage({
+        app_name: '一嗨租车PC'
+    });
+    ehiSensors.quick('autoTrack');
+    var ehiid = "2025914106";
+    if (ehiid.length > 0) {
+        sensors.login(ehiid);
+    }
+</script>
+</body>
+</html>
